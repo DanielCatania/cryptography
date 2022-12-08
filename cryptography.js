@@ -5,6 +5,18 @@ export const ciphers = Cryptography.ciphers = {
   'N', 'M','L', 'K', 'J', 'I', 'H', 'G', 'F', 'E', 'D', 'C', 'B', 'A',],
   alphabet: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
   'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
+  movement: (movementNumber) => { 
+    const { alphabet } = Cryptography.ciphers;
+    const cipher = [];
+
+    alphabet.forEach((letter) => {
+      const code = letter.charCodeAt(0);
+
+      cipher.push(String.fromCharCode(code + movementNumber))
+    })
+
+    return cipher
+  }
 }
 
 export const decrypt = Cryptography.decrypt = (encryptedMessage, cipher) =>  {
